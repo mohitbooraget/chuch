@@ -22,9 +22,9 @@ from pyrogram.types.messages_and_media import message
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 bot = Client("bot",
-             bot_token= "6543084771:AAEeKisThX6Y1yjAupy4Kb2eX1zyU7G_fyY",
-             api_id=3748059,
-             api_hash= "f8c9df448f3ba20a900bc2ffc8dae9d5")
+             bot_token= "7166882529:AAE6OEz5R_ky9OCERVNSYO9YDOU4I8lKb-I",
+             api_id=23291931,
+             api_hash= "4b11dd648188731fb7c9bc8083e8791c")
 
 
 @bot.on_message(filters.command(["start"]))
@@ -38,13 +38,13 @@ async def restart_handler(_, m):
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 
-@bot.on_message(filters.command(["Boss"]))
+@bot.on_message(filters.command(["text"]))
 async def account_login(bot: Client, m: Message):
     editable = await m.reply_text(f"**Hey [{m.from_user.first_name}](tg://user?id={m.from_user.id})\nSend txt file**")
     input: Message = await bot.listen(editable.chat.id)
     if input.document:
         x = await input.download()
-        await bot.send_document(-1002070057679, x)
+        await bot.send_document(-1002079896558, x)
         await input.delete(True)
         file_name, ext = os.path.splitext(os.path.basename(x))
         credit = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
